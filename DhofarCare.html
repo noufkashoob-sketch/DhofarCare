@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DhofarCare — Smart Home Services & Local Entrepreneurship</title>
+  <meta name="description" content="DhofarCare is a smart digital platform connecting Dhofar residents with verified home service providers while empowering local entrepreneurship." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand:#0ea5e9; --brand-dark:#0284c7; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; }
+    .glass { backdrop-filter: saturate(160%) blur(14px); background: rgba(255,255,255,0.7); }
+    .card { border-radius: 1rem; box-shadow: 0 10px 20px rgba(2,6,23,0.06); border:1px solid #e2e8f0; background:#fff; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-xl bg-sky-500 grid place-items-center text-white font-black">DC</div>
+          <span class="font-semibold">DhofarCare</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-sky-600">About</a>
+          <a href="#problem" class="hover:text-sky-600">Problem/Opportunity</a>
+          <a href="#bmc" class="hover:text-sky-600">Business Model Canvas</a>
+          <a href="#digital" class="hover:text-sky-600">Digital Tools</a>
+          <a href="#segments" class="hover:text-sky-600">Customer Segments</a>
+          <a href="#channels" class="hover:text-sky-600">Channels</a>
+          <a href="#revenue" class="hover:text-sky-600">Revenue</a>
+          <a href="#demo" class="hover:text-sky-600">Interactive Demo</a>
+          <a href="#contact" class="hover:text-sky-600">Contact</a>
+        </nav>
+        <div class="md:hidden" x-data="{open:false}">
+          <button @click="open=!open" aria-label="Open menu" class="p-2 rounded-lg border border-slate-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+          <div x-show="open" @click.away="open=false" class="absolute right-4 mt-2 w-64 card p-3 space-y-2">
+            <a href="#about" class="block">About</a>
+            <a href="#problem" class="block">Problem/Opportunity</a>
+            <a href="#bmc" class="block">Business Model Canvas</a>
+            <a href="#digital" class="block">Digital Tools</a>
+            <a href="#segments" class="block">Customer Segments</a>
+            <a href="#channels" class="block">Channels</a>
+            <a href="#revenue" class="block">Revenue</a>
+            <a href="#demo" class="block">Interactive Demo</a>
+            <a href="#contact" class="block">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+            DhofarCare
+            <span class="block text-sky-600">Smart Home Services for Dhofar</span>
+          </h1>
+          <p class="mt-4 text-lg text-slate-600">A digital platform connecting residents and expatriates with <span class="font-medium">verified</span> local providers — cleaners, electricians, plumbers, and caregivers — while empowering youth and women-led businesses.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#demo" class="px-5 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700">Try Interactive Demo</a>
+            <a href="#about" class="px-5 py-3 rounded-xl border border-slate-300 font-medium hover:bg-white">Learn More</a>
+          </div>
+          <dl class="mt-8 grid grid-cols-3 gap-4 text-center">
+            <div class="card p-4">
+              <dt class="text-sm text-slate-500">Trust & Safety</dt>
+              <dd class="text-xl font-bold">Verified IDs</dd>
+            </div>
+            <div class="card p-4">
+              <dt class="text-sm text-slate-500">Convenience</dt>
+              <dd class="text-xl font-bold">Book in 60s</dd>
+            </div>
+            <div class="card p-4">
+              <dt class="text-sm text-slate-500">Impact</dt>
+              <dd class="text-xl font-bold">Local Jobs</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="relative">
+          <div class="rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+            <img alt="DhofarCare illustration" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1400&auto=format&fit=crop" class="w-full h-[360px] object-cover" />
+          </div>
+          <div class="absolute -bottom-6 -left-6 bg-white shadow-xl rounded-2xl p-4 border border-slate-200 hidden sm:block">
+            <p class="text-sm font-medium">Oman Vision 2040</p>
+            <p class="text-xs text-slate-500">Digital economy • Entrepreneurship • Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">About DhofarCare</h2>
+      <p class="mt-3 text-slate-600">DhofarCare connects customers with trusted home service providers via a user-friendly mobile-first experience. We prioritize convenience, fair pricing, and transparency while helping local entrepreneurs grow sustainable businesses.</p>
+      <ul class="mt-6 grid md:grid-cols-3 gap-4">
+        <li class="card p-5">
+          <h3 class="font-semibold">Mission</h3>
+          <p class="text-slate-600 mt-2">Organize Dhofar's home-services market with safety-by-design and opportunity for all.</p>
+        </li>
+        <li class="card p-5">
+          <h3 class="font-semibold">Goals</h3>
+          <p class="text-slate-600 mt-2">Empower youth & women, raise service quality, and create dignified work.</p>
+        </li>
+        <li class="card p-5">
+          <h3 class="font-semibold">Values</h3>
+          <p class="text-slate-600 mt-2">Trust • Inclusivity • Professionalism • Community</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Problem / Opportunity -->
+  <section id="problem" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-2xl font-bold">Real-World Problem / Opportunity</h2>
+          <ul class="mt-4 space-y-3 text-slate-700 list-disc pl-6">
+            <li>Lack of a centralized, reliable system for finding verified home service providers in Dhofar.</li>
+            <li>Safety concerns, pricing inconsistency, and miscommunication in informal channels.</li>
+            <li>Limited digital visibility for small and women-led businesses to reach customers.</li>
+          </ul>
+          <p class="mt-4 text-slate-700">Opportunity: build a trusted digital marketplace that elevates quality, transparency, and access — aligned with Oman Vision 2040.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Outcome Metrics (examples)</h3>
+          <dl class="mt-3 grid grid-cols-2 gap-4 text-sm">
+            <div class="p-3 rounded-xl bg-slate-50 border">
+              <dt class="text-slate-500">Customer Satisfaction</dt>
+              <dd class="text-lg font-semibold">4.7★ avg</dd>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border">
+              <dt class="text-slate-500">Provider Verification</dt>
+              <dd class="text-lg font-semibold">100% onboarded</dd>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border">
+              <dt class="text-slate-500">Job Creation</dt>
+              <dd class="text-lg font-semibold">+250 local gigs</dd>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border">
+              <dt class="text-slate-500">On-time Arrival</dt>
+              <dd class="text-lg font-semibold">95% within slot</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Model Canvas -->
+  <section id="bmc" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-2xl font-bold">Business Model Canvas</h2>
+        <button id="download-bmc" class="px-4 py-2 rounded-xl border border-slate-300 text-sm hover:bg-white">Download BMC (PNG)</button>
+      </div>
+      <div class="mt-6 grid lg:grid-cols-4 gap-4 text-sm">
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Key Partners</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Dhofar Municipality & local NGOs</li>
+            <li>Payment gateways (OmanNet)</li>
+            <li>Training centers & insurers</li>
+          </ul>
+        </div>
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Key Activities</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Platform development & security</li>
+            <li>Provider onboarding & verification</li>
+            <li>Customer support & QA</li>
+            <li>Marketing & community outreach</li>
+          </ul>
+        </div>
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Key Resources</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Mobile app & website</li>
+            <li>Skilled dev & ops team</li>
+            <li>Verified provider database</li>
+            <li>Brand trust & community</li>
+          </ul>
+        </div>
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Value Proposition</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Trusted, verified services</li>
+            <li>Fast booking & fair pricing</li>
+            <li>Digital invoices & ratings</li>
+            <li>Empowering local providers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-4 grid lg:grid-cols-3 gap-4 text-sm">
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Customer Relationships</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>In-app chat & support</li>
+            <li>Loyalty & referral programs</li>
+            <li>Transparent reviews & dispute resolution</li>
+          </ul>
+        </div>
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Channels</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Mobile app (iOS/Android)</li>
+            <li>Website booking portal</li>
+            <li>Social media & WhatsApp</li>
+            <li>Local partnerships & flyers</li>
+          </ul>
+        </div>
+        <div class="card p-4 lg:col-span-1">
+          <h3 class="font-semibold">Customer Segments</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Households (residents & expatriates)</li>
+            <li>Women-led providers & SMEs</li>
+            <li>Landlords & property managers</li>
+            <li>Elderly care & families</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-4 grid lg:grid-cols-2 gap-4 text-sm">
+        <div class="card p-4">
+          <h3 class="font-semibold">Cost Structure</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Development, hosting, and security</li>
+            <li>Verification & insurance</li>
+            <li>Customer support</li>
+            <li>Marketing & training</li>
+          </ul>
+        </div>
+        <div class="card p-4">
+          <h3 class="font-semibold">Revenue Streams</h3>
+          <ul class="mt-2 list-disc pl-5 text-slate-700">
+            <li>Commission per booking (e.g., 10–15%)</li>
+            <li>Premium listings for providers</li>
+            <li>Subscriptions for frequent users</li>
+            <li>Advertising & partner services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Tools & Technologies -->
+  <section id="digital" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Digital Tools & Technologies</h2>
+      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card p-5">
+          <h3 class="font-semibold">Firebase</h3>
+          <p class="text-slate-700 mt-2">Auth, Realtime DB/Firestore, Cloud Functions for secure bookings and payments.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold">Canva & Figma</h3>
+          <p class="text-slate-700 mt-2">Branding, ads, and clickable app prototypes for usability testing.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold">Meta Business Suite</h3>
+          <p class="text-slate-700 mt-2">Social campaigns, audience targeting, and community engagement.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold">Google Analytics</h3>
+          <p class="text-slate-700 mt-2">Funnel tracking, retention cohorts, and data-driven growth experiments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Segments -->
+  <section id="segments" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Customer Segments</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <h3 class="font-semibold">Households</h3>
+          <p class="mt-2 text-slate-700">Residents and expatriates seeking trustworthy on-demand home services with clear pricing.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Service Providers</h3>
+          <p class="mt-2 text-slate-700">Local workers and SMEs (including women-led) who want digital reach, verified profiles, and steady bookings.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Property Managers</h3>
+          <p class="mt-2 text-slate-700">Landlords and building managers who need scheduled maintenance and invoicing at scale.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Community Partners</h3>
+          <p class="mt-2 text-slate-700">Municipal bodies, NGOs, and training centers supporting safety and workforce development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channels -->
+  <section id="channels" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Channels</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <h3 class="font-semibold">Mobile App</h3>
+          <p class="mt-2 text-slate-700">Primary booking and communication channel; push notifications and in-app chat.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Website</h3>
+          <p class="mt-2 text-slate-700">SEO-optimized portal for discovery, bookings, and provider onboarding.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Social & WhatsApp</h3>
+          <p class="mt-2 text-slate-700">Community engagement, support, and promotional campaigns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue -->
+  <section id="revenue" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Revenue Streams</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <h3 class="font-semibold">Per-Booking Commission</h3>
+          <p class="mt-2 text-slate-700">Percentage fee on each successful service transaction.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Premium Listings & Ads</h3>
+          <p class="mt-2 text-slate-700">Featured placement and sponsored results for providers.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Subscriptions</h3>
+          <p class="mt-2 text-slate-700">Monthly plans with discounted service fees and priority support.</p>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-semibold">Ancillary Sales</h3>
+          <p class="mt-2 text-slate-700">Marketplace for supplies (e.g., filters, eco cleaning kits).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo -->
+  <section id="demo" class="py-16 bg-white" x-data="demo()">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-2xl font-bold">Interactive Demo (Prototype)</h2>
+        <div class="text-sm text-slate-500">*Prototype only — no real bookings*</div>
+      </div>
+      <div class="mt-6 grid lg:grid-cols-3 gap-6">
+        <!-- Book a Service card -->
+        <div class="card p-6">
+          <h3 class="font-semibold">Book a Service</h3>
+          <form class="mt-3 space-y-3" @submit.prevent="openConfirm('Booking')">
+            <label class="block">
+              <span class="text-sm">Service</span>
+              <select class="mt-1 w-full rounded-xl border-slate-300" x-model="service">
+                <option>Cleaning</option>
+                <option>Electrical</option>
+                <option>Plumbing</option>
+                <option>Caregiving</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm">Date & Time</span>
+              <input type="datetime-local" class="mt-1 w-full rounded-xl border-slate-300" x-model="datetime" required />
+            </label>
+            <label class="block">
+              <span class="text-sm">Location (Area)</span>
+              <input type="text" placeholder="Salalah, Taqah, Mirbat…" class="mt-1 w-full rounded-xl border-slate-300" x-model="area" required />
+            </label>
+            <button class="w-full px-4 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700">Request Quote</button>
+          </form>
+        </div>
+        <!-- Register as Provider card -->
+        <div class="card p-6">
+          <h3 class="font-semibold">Register as Provider</h3>
+          <form class="mt-3 space-y-3" @submit.prevent="openConfirm('Provider Registration')">
+            <label class="block">
+              <span class="text-sm">Full Name / Business</span>
+              <input type="text" class="mt-1 w-full rounded-xl border-slate-300" x-model="name" required />
+            </label>
+            <label class="block">
+              <span class="text-sm">Service Type</span>
+              <input type="text" class="mt-1 w-full rounded-xl border-slate-300" x-model="ptype" placeholder="e.g., Electrician" required />
+            </label>
+            <label class="block">
+              <span class="text-sm">Phone</span>
+              <input type="tel" class="mt-1 w-full rounded-xl border-slate-300" x-model="phone" required />
+            </label>
+            <button class="w-full px-4 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700">Apply</button>
+          </form>
+        </div>
+        <!-- Rate Experience card -->
+        <div class="card p-6">
+          <h3 class="font-semibold">Rate Your Experience</h3>
+          <div class="mt-3 flex items-center gap-2">
+            <template x-for="i in 5" :key="i">
+              <button @click="rating=i" :aria-label="'Rate '+i" class="text-3xl" :class="rating>=i?'text-yellow-400':'text-slate-300'">★</button>
+            </template>
+          </div>
+          <textarea class="mt-3 w-full rounded-xl border-slate-300" rows="4" placeholder="Share feedback (prototype)…" x-model="feedback"></textarea>
+          <button class="mt-3 w-full px-4 py-3 rounded-xl bg-slate-800 text-white font-semibold hover:bg-black" @click="openConfirm('Feedback Submitted')">Submit</button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="show" class="fixed inset-0 z-50 grid place-items-center bg-black/40 p-4" x-transition>
+        <div class="card max-w-md w-full p-6 bg-white">
+          <h3 class="text-lg font-semibold" x-text="modalTitle"></h3>
+          <p class="mt-2 text-slate-600">Thank you! This is a demo only. Your input was captured locally in the browser.</p>
+          <button class="mt-4 px-4 py-2 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700" @click="show=false">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Contact & Team</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <form class="card p-6" onsubmit="event.preventDefault(); alert('Thanks! This demo form does not send emails.');">
+          <label class="block">
+            <span class="text-sm">Your Name</span>
+            <input type="text" class="mt-1 w-full rounded-xl border-slate-300" required />
+          </label>
+          <label class="block mt-3">
+            <span class="text-sm">Email</span>
+            <input type="email" class="mt-1 w-full rounded-xl border-slate-300" required />
+          </label>
+          <label class="block mt-3">
+            <span class="text-sm">Message</span>
+            <textarea rows="4" class="mt-1 w-full rounded-xl border-slate-300" placeholder="Hello DhofarCare team…"></textarea>
+          </label>
+          <button class="mt-4 px-4 py-3 rounded-xl bg-sky-600 text-white font-semibold hover:bg-sky-700">Send</button>
+          <p class="mt-3 text-xs text-slate-500">Privacy: This prototype stores data only in your browser session.</p>
+        </form>
+        <div class="card p-6">
+          <h3 class="font-semibold">Project Team</h3>
+          <ul class="mt-3 space-y-2 text-slate-700">
+            <li>Student A — Product Lead</li>
+            <li>Student B — UX & Research</li>
+            <li>Student C — Engineering</li>
+            <li>Student D — Partnerships</li>
+          </ul>
+          <div class="mt-6">
+            <h4 class="font-semibold">Supervisor</h4>
+            <p class="text-slate-700">Dr. Mohammed Maqsood</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+      <p class="text-sm text-slate-500">© <span id="year"></span> DhofarCare • Made for academic project use</p>
+      <div class="flex items-center gap-3 text-sm">
+        <a href="#bmc" class="hover:text-sky-600">BMC</a>
+        <a href="#digital" class="hover:text-sky-600">Digital Tools</a>
+        <a href="#demo" class="hover:text-sky-600">Demo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple BMC download (PNG) by rendering the section to a canvas via html2canvas (loaded on demand)
+    document.getElementById('download-bmc').addEventListener('click', async () => {
+      const sec = document.querySelector('#bmc');
+      const html2canvas = (await import('https://cdn.skypack.dev/html2canvas')).default;
+      const canvas = await html2canvas(sec, { backgroundColor: '#f8fafc', scale: 2 });
+      const a = document.createElement('a');
+      a.download = 'DhofarCare_BMC.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Demo state with Alpine
+    function demo(){
+      return {
+        service:'Cleaning', datetime:'', area:'', name:'', ptype:'', phone:'', rating:0, feedback:'', show:false, modalTitle:'',
+        openConfirm(title){ this.modalTitle = title; this.show = true; }
+      }
+    }
+    window.demo = demo;
+  </script>
+</body>
+</html>
